@@ -513,6 +513,9 @@ end if
     if .PvNode eq 0
 		mov   eax, dword[.depth]
 		cmp   eax, 5*ONE_PLY
+		
+    jmp   .9skip ;;
+    
 		 jl   .9skip
 		mov   eax, dword[.beta]
 		add   eax, VALUE_MATE_IN_MAX_PLY-1
