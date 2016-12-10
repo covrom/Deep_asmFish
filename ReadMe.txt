@@ -1,7 +1,6 @@
 Deep_asmFish for quick analysis
 
-Removed Null move as in DeepFish MZ.
-Small changes in search function.
+Removed Null move, Razoring and ProbCut as in DeepFish MZ.
 Deep_asmFish search mate in #24 very quickly (10 sec on 2 core of i5-3570) in this position
 5kB1/3p1P2/7K/2Pp1P1P/p6p/4P3/7P/8 w - - 0 1
 
