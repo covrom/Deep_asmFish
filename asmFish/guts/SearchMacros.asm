@@ -387,7 +387,7 @@ end if
 
 
 	; Step 7. Futility pruning: child node (skipped when in check)
-    if .PvNode eq 0
+    if .RootNode eq 0
 		mov   edx, dword[.depth]
 		mov   ecx, dword[rbp+Pos.sideToMove]
 		cmp   edx, 7*ONE_PLY
@@ -988,7 +988,7 @@ end if
 
 	; edx = depth
 
-    if .PvNode eq 0   ;
+    if .RootNode eq 0   ;
 
 		mov   ecx, dword[.bestValue]
 		cmp   ecx, VALUE_MATED_IN_MAX_PLY
@@ -1145,7 +1145,7 @@ end if
 		mov   edx, dword[.depth]
 		mov   ecx, dword[.moveCount]
 		
-    cmp   edx, 7*ONE_PLY  ;
+    cmp   edx, 3*ONE_PLY  ;
 		
      jl   .15skip
 		cmp   ecx, 1
