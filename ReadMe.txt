@@ -1,9 +1,3 @@
-Deep_asmFish for quick analysis
-
-Removed Null move, Razoring and ProbCut as in DeepFish MZ.
-Deep_asmFish search mate in #24 very quickly in this position
-5kB1/3p1P2/7K/2Pp1P1P/p6p/4P3/7P/8 w - - 0 1
-
 ******** introduction ********
 Welcome to the project of converting stockfish into x86-64!
 The executables can be found in the Windows folder.
@@ -48,6 +42,35 @@ A: It is 99.9% official stockfish as there are some inconsequential functional d
 
 
 ******** updates ********
+2016-12-17 Another simplification for SEE pruning
+    - Use pawn value when pruning moves with negative SEE
+2016-12-17 Fix: quit after completing command line options
+    - Removing a bug that prevented running tests using scripts like BuildTester from software.farseer.org.
+http://www.talkchess.com/forum/viewtopic.php?topic_view=threads&p=698075&t=62416
+2016-12-15 Fix own book loading
+    - Own book didn't load under Fritz and Arena. Patch changes BookPath to BookFile and some USE_BOOK flags
+2016-12-12 Simplify pruning
+    - Don't take into account alpha and beta limits
+2016-12-11 Simplify unstoppable condition
+    - Remove rank dependence
+2016-12-10 Fix contempt scale
+    - A bug noted by Stefan Pohl. At contempt 15 asmFish gave a value -0.06 compared to -0.14 in Stockfish. This patch rescales to correct contempt values.
+2016-12-05 Pawn flank attacks 
+    - This patch tweaks some pawn values to favor flank attacks. The first part of the patch increases the midgame psqt values of external pawns to launch more attacks, while the second part increases the endgame connection values for pawns on upper ranks.
+2016-12-04 Remove piece condition in decrease lmr reduction check
+2016-12-02 Simplify pruning rule
+2016-12-01 WeakQueen Parameter tweak
+    - New tuned values.
+2016-11-27 TrappedRook simplification
+    - Just remove rank checks for rook and king for TrappedRook evaluation.
+2016-11-19 Rank based threats
+2016-11-19 Pawn shelter and pawn storm tuned
+    - Based on SPSA tuned values
+2016-11-05 Non-quiet pruning tweak 
+    - Count in the difference of static evaluation and alpha for pruning threshold.
+2016-11-05 Reduction Simplification
+    - Simplify reduction formula by removing a parameter.
+=========================================================   
 2016-11-04: "stockfish 8"
   - summary of extra features in all versions by default
     - NodeAffinity:
